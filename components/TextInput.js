@@ -17,7 +17,7 @@ class TextInput extends React.PureComponent<TextInputProps> {
     return (
       <div>
         <input
-          type="text"
+          type={this.props.type || 'text'}
           value={this.props.value}
           onChange={this.handleInputChange}
         />
