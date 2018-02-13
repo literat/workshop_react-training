@@ -2,6 +2,7 @@
 import * as React from 'react';
 import Form from './Form';
 import TextInput from './TextInput';
+import Button from './Button';
 
 type AuthState = {|
   email: string,
@@ -36,7 +37,7 @@ class Auth extends React.PureComponent<{}, AuthState> {
           onChange={password => this.setState({ password })}
         />
 
-        <button>Submit</button>
+        <Button>Submit</Button>
       </Form>
     );
   }

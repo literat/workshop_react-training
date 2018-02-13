@@ -30,13 +30,13 @@ class Page extends React.PureComponent<PageProps> {
   render() {
     return (
       <div>
-        {/* <style jsx global>
+        <style jsx global>
           {`
             body {
-          background: red;
+              background: red;
             }
           `}
-        </style> */}
+        </style>
         <Head>
           <title>{this.props.title}</title>
           <meta charset="utf-8" />
