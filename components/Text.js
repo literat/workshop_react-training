@@ -3,6 +3,7 @@ import * as React from 'react';
 
 type TextProps = {
   children: string,
+  color?: 'primary' | 'error',
 };
 
 class Text extends React.PureComponent<TextProps> {
@@ -12,7 +13,6 @@ class Text extends React.PureComponent<TextProps> {
         <style jsx>
           {`
             span {
-              color: #333;
               line-height: 1.5;
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
                 Helvetica, Arial, sans-serif, 'Apple Color Emoji',
@@ -20,6 +20,11 @@ class Text extends React.PureComponent<TextProps> {
             }
           `}
         </style>
+        <style jsx>{`
+          span {
+            color: ${this.props.color === 'error' ? 'red' : '#333'};
+          }
+        `}</style>
         {this.props.children}
       </span>
     );

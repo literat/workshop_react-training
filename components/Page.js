@@ -33,7 +33,7 @@ class Page extends React.PureComponent<PageProps> {
         <style jsx global>
           {`
             body {
-              background: red;
+              background: white;
             }
           `}
         </style>
