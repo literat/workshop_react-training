@@ -3,6 +3,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Text from './Text';
+//import ThemeContext from './Mutation';
 
 class Header extends React.PureComponent<{}> {
   render() {
@@ -29,6 +30,7 @@ type PageProps = {
 class Page extends React.PureComponent<PageProps> {
   render() {
     return (
+      //<ThemeContext.Provider value="light">
       <div>
         <style jsx global>
           {`
@@ -69,6 +71,7 @@ class Page extends React.PureComponent<PageProps> {
 
         {this.props.children}
       </div>
+      //</ThemeContext.Provider>
     );
   }
 }

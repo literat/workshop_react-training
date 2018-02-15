@@ -9,6 +9,8 @@
     "flow": "flow"
   },
   "dependencies": {
+    "create-react-context": "^0.1.6",
+    "graphql-request": "^1.4.1",
     "next": "^5.0.1-canary.2",
     "now": "^9.3.1",
     "react": "^16.2.0",

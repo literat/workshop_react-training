@@ -7,6 +7,18 @@ import {
   validateEmailPassword,
   type ValidationErrors,
 } from '../server/validation';
+import { request } from 'graphql-request';
+
+const query = `
+  query {
+    feed {
+      id
+      title
+    }
+  }
+`;
+
+request('http://localhost:4000', query).then(data => console.log(data));
 
 type Fields = {|
   email: string,
@@ -38,7 +50,9 @@ class Auth extends React.PureComponent<{}, AuthState> {
       this.setState({ validationErrors });
       return;
     }
-    this.setState(Auth.initialState);
+
+    // mutation
+    //this.setState(Auth.initialState);
   };
 
   render() {
@@ -57,7 +71,8 @@ class Auth extends React.PureComponent<{}, AuthState> {
           error={this.state.validationErrors.password}
         />
 
-        <Button>Submit</Button>
+        <Button>Login</Button>
+        <Button>Register</Button>
       </Form>
     );
   }
