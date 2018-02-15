@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Text from './Text';
 import ThemeToggler from './ThemeToggler';
 import Container from './Container';
+import MainNavigation from './MainNavigation';
 
 class Header extends React.PureComponent<{}> {
   render() {
@@ -50,25 +51,7 @@ class Page extends React.PureComponent<PageProps> {
               />
             </Head>
             <header>
-              <nav>
-                <Link href="/">
-                  <a>
-                    <Text>Home</Text>
-                  </a>
-                </Link>{' '}
-                |
-                <Link href="/about">
-                  <a>
-                    <Text>About</Text>
-                  </a>
-                </Link>{' '}
-                |
-                <Link href="/contact">
-                  <a>
-                    <Text>Contact</Text>
-                  </a>
-                </Link>
-              </nav>
+              <MainNavigation />
             </header>
 
             {this.props.children}
