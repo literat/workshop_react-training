@@ -3,7 +3,8 @@ import * as React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Text from './Text';
-//import ThemeContext from './Mutation';
+import ThemeToggler from './ThemeToggler';
+import Container from './Container';
 
 class Header extends React.PureComponent<{}> {
   render() {
@@ -30,48 +31,50 @@ type PageProps = {
 class Page extends React.PureComponent<PageProps> {
   render() {
     return (
-      //<ThemeContext.Provider value="light">
-      <div>
-        <style jsx global>
-          {`
-            body {
-              background: white;
-            }
-          `}
-        </style>
-        <Head>
-          <title>{this.props.title}</title>
-          <meta charset="utf-8" />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-        </Head>
-        <header>
-          <nav>
-            <Link href="/">
-              <a>
-                <Text>Home</Text>
-              </a>
-            </Link>{' '}
-            |
-            <Link href="/about">
-              <a>
-                <Text>About</Text>
-              </a>
-            </Link>{' '}
-            |
-            <Link href="/contact">
-              <a>
-                <Text>Contact</Text>
-              </a>
-            </Link>
-          </nav>
-        </header>
+      <ThemeToggler>
+        <Container>
+          <div>
+            <style jsx global>
+              {`
+                body {
+                  background: white;
+                }
+              `}
+            </style>
+            <Head>
+              <title>{this.props.title}</title>
+              <meta charset="utf-8" />
+              <meta
+                name="viewport"
+                content="initial-scale=1.0, width=device-width"
+              />
+            </Head>
+            <header>
+              <nav>
+                <Link href="/">
+                  <a>
+                    <Text>Home</Text>
+                  </a>
+                </Link>{' '}
+                |
+                <Link href="/about">
+                  <a>
+                    <Text>About</Text>
+                  </a>
+                </Link>{' '}
+                |
+                <Link href="/contact">
+                  <a>
+                    <Text>Contact</Text>
+                  </a>
+                </Link>
+              </nav>
+            </header>
 
-        {this.props.children}
-      </div>
-      //</ThemeContext.Provider>
+            {this.props.children}
+          </div>
+        </Container>
+      </ThemeToggler>
     );
   }
 }

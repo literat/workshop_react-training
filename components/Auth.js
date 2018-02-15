@@ -18,7 +18,7 @@ const query = `
   }
 `;
 
-request('http://localhost:4000', query).then(data => console.log(data));
+//request('http://localhost:4000', query).then(data => console.log(data));
 
 type Fields = {|
   email: string,
