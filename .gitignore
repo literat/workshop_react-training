@@ -1,5 +1,6 @@
 .DS_Store
 .next
+.idea
 lang/.messages
 node_modules
 npm-debug.log

@@ -82,7 +82,7 @@ base on information and code from [este](https://github.com/este/este)
 
 * http://graphql.org/
 * https://www.apollographql.com/
-* https://facebook.github.io/relay/
+* https://facebook.github.io/relay/ - implementation of GraphQL for client
 * http://www.graph.cool/
 * https://github.com/graphcool/graphcool-framework
 * https://github.com/graphcool/prisma
@@ -100,3 +100,61 @@ base on information and code from [este](https://github.com/este/este)
 * https://zeit.co/
 * https://ide.atom.io/
 * https://www.gatsbyjs.org/
+
+## Notes
+
+### Progress bar
+
+* když načítám ajaxem, tak je dobré, aby se stránka prednačetla až když má data,
+ale kvůli pomalému připojení je dobré uživateli zobrazit nejaký stav - viz např. github,
+ je dobré progress bar zobrazovat až po nějakém krátkém čase (aby tam nebyl pořád),
+ kouknout do este na LoadingBar.js
+
+ ### Fetch
+
+ * fetch - lepší než jquery.ajax() - davidwalsh.name/fetch,
+ používá Promise místo callbacku, ale pozor na to, že nejde udělat cancel,
+ learn RxJS - dokumentace getInitialProps - pouze v pages,
+ spousti Next.js, jako defaultni initial funkci imperativní/deklarativní data - react je deklarativni -> řeším
+ pouze data, react automaticky data reprezentuje do UI
+
+ ### Miscellaneous
+
+ * dynamický klíč: `this.setState({ [e.currentTarget.name]: e.currentTarget.value });`
+ * algebraický typ / union type: `type Now = number | "unknown";`
+ * exact type - nesmí se rozšířit o další property:
+```
+type ExactProps = {|
+  now: number
+|};
+
+type IndexProps = {
+  now: number,
+  later: ?number, // null nebo number
+  superlater?: number // nepovinna polozka
+};
+```
+
+* this:
+```
+foo() {
+  this...
+}
+
+// this ktere ocekavam
+foo = () => {
+  this...
+}
+```
+
+* object change -> create new:
+```
+const Joe = {
+  ...Joe,
+  name: ‘Jine jmeno’
+}
+
+const products = [...products, 4, 5];
+```
+
+* `"private": true`: nedovolí uploadovat balík do NPM repository
